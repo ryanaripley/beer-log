@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import BeerGlass from '../components/BeerGlass';
 import GrainBill from '../components/GrainBill';
 import AddMaltForm from '../components/AddMaltForm';
-import sampleMalts from '../data/sampleMalts';
+import Stats from '../components/Stats';
+
+import sampleRecipes from '../data/sampleRecipes';
 
 class App extends Component {
   constructor() {
@@ -14,40 +17,39 @@ class App extends Component {
     this.state = {
       settings: {
         efficiency: .75,
-        batchSize: 5
       },
-      malts: {},
-      hops: {}
+      recipes: sampleRecipes
     }
   }
 
-  addMalt(malt) {
+  addMalt(malt, recipe) {
     // Update state
-    const malts = {...this.state.malts};
-    const timestamp = Date.now();
-    malts[`malt-${timestamp}`] = malt;
+    const recipes = {...this.state.recipes};
+    recipes[recipe].malts.push(malt);
     // Set state
-    this.setState({ malts });
+    // To do: figure out a way to update only the recipe changed, 
+    // not the entire state.recipes object
+    this.setState({ recipes });
   }
 
   loadSample = () => {
     this.setState({
-      malts: sampleMalts
+      recipes: sampleRecipes
     });
   };
 
   render() {
     return (
       <div className="site">
-        <h1>Oatmeal Stout</h1>
-        <p className="sub-title">Brewed September 16, 2016</p>
-        <div className="stats">
-          <div className="stat">
-            <h3>1.059</h3>
-            <p className="sub-title">OG</p>
+        <header className="recipe-header">
+          <BeerGlass malts={this.state.recipes.recipe1984.malts} batchSize={this.state.recipes.recipe1984.batchSize} />
+          <div className="recipe-title">
+            <h1>{this.state.recipes.recipe1984.name}</h1>
+            <p className="sub-title">Brewed September 16, 2016</p>
           </div>
-        </div>
-        <GrainBill malts={this.state.malts} />
+        </header>
+        <Stats recipe={this.state.recipes.recipe1984} settings={this.state.settings} />
+        <GrainBill recipe={this.state.recipes.recipe1984} />
         <AddMaltForm addMalt={this.addMalt} />
         <button onClick={this.loadSample}>Load sample recipe</button>
       </div>

@@ -5,16 +5,12 @@ import { objectLength } from '../helpers';
 class GrainBill extends React.Component {
 	render() {
 		let totalWeight = 0;
-		if (objectLength(this.props.malts) > 0) {
-			totalWeight = Object
-				.keys(this.props.malts)
-				.reduce((total, key) => {
-					console.log(key);
-	      	return total + this.props.malts[key].weight;
+		if (objectLength(this.props.recipe.malts) > 0) {
+			totalWeight = this.props.recipe.malts
+				.reduce((total, malt) => {
+	      	return total + parseFloat(malt.weight);
 	    	}, 0);
 	  }
-
-	  console.log(totalWeight);
 		return (
 			<div className="grain-bill">
 				<h2>Grain Bill</h2>
@@ -29,10 +25,9 @@ class GrainBill extends React.Component {
 			    </thead>
 			    <tbody>
 			    	{
-			    		Object
-			    			.keys(this.props.malts)
-			    			.map(key => <Malt key={key} details={this.props.malts[key]} totalWeight={totalWeight} 
-			    								/>)
+			    		this.props.recipe.malts.map((malt, index) => {
+			    			return <Malt key={index} details={malt} totalWeight={totalWeight} />;
+			    		})
 			    	}
 			    </tbody>
 			  </table>
