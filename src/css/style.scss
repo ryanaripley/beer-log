@@ -1,0 +1,265 @@
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic|Montserrat:400,700);
+
+$bp-nav: 850px;
+
+$color-primary: #E0AA52;
+$color-primary-drk: #BD7501;
+$color-secondary: #6388AD;
+$color-secondary-drk: #205587;
+$color-secondary-alpha: rgba($color-secondary, .4);
+$color-success: #12C96D;
+$color-alert: #FF5F47;
+
+$color-white: #FCFCFC;
+$color-ltgray: #F0F0F0;
+$color-gray: #828282;
+$color-drkgray: #454545;
+$color-black: #242424;
+
+$font-primary: "Lora", Times, serif;
+$font-primary-weight: 400;
+$font-secondary: "Montserrat", Arial, sans-serif;
+$font-secondary-weight: 400;
+$font-secondary-weight-heavy: 700;
+
+$padding: 1.4em;
+$header-height: 3.6rem;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*::selection {
+  background: $color-secondary-alpha;
+}
+
+figure {
+  margin-top: $padding;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg[class^="icon-"] {
+  path {
+    fill: #bada55 !important;
+  }
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background: $color-white;
+  color: $color-black;
+  font-family: $font-secondary;
+  font-size: 1.2em;
+  font-weight: $font-secondary-weight;
+  @media (min-width: $bp-nav) {
+    font-size: 1.5em;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-secondary;
+  font-weight: $font-secondary-weight-heavy;
+  line-height: 1.1;
+  margin: 1.5em 0 0;
+}
+
+h1, h2 {
+  letter-spacing: -.05em;
+  text-transform: uppercase;
+}
+
+p, ul, ol, blockquote {
+  font-family: $font-primary;
+  font-weight: $font-primary-weight;
+  line-height: 1.5;
+  margin-top: 1.4em;
+  a:hover, a:target {
+    text-decoration: underline;
+  }
+}
+
+.sub-title {
+  font-style: italic;
+  margin-top: 0;
+}
+
+a, a:visited {
+  color: $color-secondary-drk;
+  text-decoration: none;
+}
+
+ul, ol {
+  padding-left: 1.8em;
+}
+
+blockquote {
+  border-left: .6em solid $color-primary;
+  font-style: italic;
+  margin-left: .5em;
+  padding-left: .7em;
+  em {
+    font-style: normal;
+  }
+}
+
+
+/* Buttons */
+a.button,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  background-color: $color-white;
+  border: 1px solid black;
+  color: $color-black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: .9em;
+  padding: .5em 1em;
+  text-align: center;
+  text-decoration: none !important;
+  transition: background .1s ease-in-out,
+              border .1s ease-in-out;
+  white-space: nowrap; 
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  background: $color-secondary;
+  outline: 0; 
+}
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  background-color: $color-primary;
+}
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  background-color: $color-secondary;
+}
+
+.site {
+  padding: $padding;
+}
+
+.site > *:first-child {
+  margin-top: 0;
+}
+
+/* Tables */
+th,
+td {
+  border-bottom: 1px solid $color-gray; 
+  font-size: .8em;
+  padding: .6em .8em;
+  text-align: left;
+  
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 0; 
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 0; 
+}
+
+.malt-list {
+  width: 100%;
+  
+  th:nth-of-type(1),
+  th:nth-of-type(3) {
+    width: 10%;
+  }
+  
+  th:nth-of-type(2) {
+    width: 80%;
+  }
+  
+  th:nth-of-type(3),
+  td:nth-of-type(3) {
+    text-align: right;
+  }
+  
+}
+
+td button {
+  margin: 0;
+  padding: .3em .6em;
+}
+
+/* Grid */
+
+.stats {
+  border-top: 1px solid $color-gray;
+  border-bottom: 1px solid $color-gray;
+  display: flex;
+  margin-top: $padding;
+}
+
+.stat {
+  flex-grow: 1;
+  padding: .6em;
+  text-align: center;
+
+  h3, p {
+    margin: 0;
+  }
+  
+}
+
+
+input {
+  font-size: .8em;
+  padding: .6em .8em;
+}
+
+.add-malt-form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: .8em 0;
+  
+  input {
+    border: 1px solid black;
+    margin: 0;
+    width: 33.33333%;
+  }
+  
+  input:first-of-type {
+    border-bottom: 0;
+    width: 100%;
+  }
+  
+  button {
+    border-top: 0;
+    width: 100%;
+  }
+  
+}
