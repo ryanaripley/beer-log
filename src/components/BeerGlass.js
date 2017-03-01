@@ -5,13 +5,12 @@ class BeerGlass extends React.Component {
 	render() {
 		const srmColors = ['#FFFFFF','#f7f2a8','#fdff99','#f7f667','#eddc28','#E0D01B','#D5BC26','#CDAA37','#C1963C','#BE8C3A','#BE823A','#C17A37','#BF7138','#BC6733','#B26033','#A85839','#985336','#8D4C32','#7C452D','#6B3A1E','#5D341A','#4E2A0C','#4A2727','#361F1B','#261716','#231716','#19100F','#16100F','#120D0C','#100B0A','#050B0A'];
 		const srm = calculateSRM(this.props.malts, this.props.batchSize);
-		const fillColor = srmColors[parseInt(srm)];
-		console.log(fillColor);
+		const fillColor = srmColors[parseInt(srm, 10)];
 
 		return (
 
 			<div className="beer-glass">
-		    <svg id="svg4328" height="481.52mm" width="238.75mm" viewBox="0 0 845.95165 1706.1866">
+		    <svg id="svg4328" height="4.8em" width="2.4em" viewBox="0 0 845.95165 1706.1866">
 		    <defs id="defs4330">
 		      <linearGradient id="linearGradient4911" y2="1026.6" gradientUnits="userSpaceOnUse" x2="197.14" gradientTransform="matrix(1.1039 0 0 1.0431 -55.386 -37.736)" y1="1023.8" x1="874.29">
 		       <stop id="stop4907" stopColor="#fff" stopOpacity=".134" offset="0"/>

@@ -3,6 +3,7 @@ import BeerGlass from '../components/BeerGlass';
 import GrainBill from '../components/GrainBill';
 import AddMaltForm from '../components/AddMaltForm';
 import Stats from '../components/Stats';
+import { formatDate } from '../helpers';
 
 import sampleRecipes from '../data/sampleRecipes';
 
@@ -45,7 +46,10 @@ class App extends Component {
           <BeerGlass malts={this.state.recipes.recipe1984.malts} batchSize={this.state.recipes.recipe1984.batchSize} />
           <div className="recipe-title">
             <h1>{this.state.recipes.recipe1984.name}</h1>
-            <p className="sub-title">Brewed September 16, 2016</p>
+            <p className="sub-title">
+              {this.state.recipes.recipe1984.style} | 
+              Brewed {formatDate(this.state.recipes.recipe1984.brewDate)}
+            </p>
           </div>
         </header>
         <Stats recipe={this.state.recipes.recipe1984} settings={this.state.settings} />
