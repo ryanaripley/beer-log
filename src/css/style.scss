@@ -243,7 +243,8 @@ input {
   padding: .6em .8em;
 }
 
-.add-malt-form {
+.add-malt-form,
+.add-hop-form {
   display: flex;
   flex-wrap: wrap;
   margin: .8em 0;
@@ -261,7 +262,8 @@ input {
   
 }
 
-.add-malt-form > div {
+.add-malt-form > div,
+.add-hop-form > div {
   border-bottom: 0;
   width: 100%;
   input {

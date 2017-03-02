@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import BeerGlass from '../components/BeerGlass';
 import GrainBill from '../components/GrainBill';
 import AddMaltForm from '../components/AddMaltForm';
+
+// import HopSchedule from '../components/HopSchedule';
+import AddHopForm from '../components/AddHopForm';
+
 import Stats from '../components/Stats';
 import { formatDate } from '../helpers';
 
@@ -44,6 +48,26 @@ class App extends Component {
     this.setState({ recipes });
   }
 
+  addHop(hop, recipe) {
+    // Update state
+    const recipes = {...this.state.recipes};
+    recipes[recipe].hops.push(hop);
+    // Set state
+    // To do: figure out a way to update only the recipe changed, 
+    // not the entire state.recipes object
+    this.setState({ recipes });
+  }
+
+  removeHop(id, recipe) {
+    // Update state
+    const recipes = {...this.state.recipes};
+    const index = recipes[recipe].hops
+      .map(hop => hop.id)
+      .indexOf(id);
+    recipes[recipe].hops.splice(index, 1);
+    this.setState({ recipes });
+  }
+
   loadSample = () => {
     this.setState({
       recipes: sampleRecipes
@@ -66,6 +90,7 @@ class App extends Component {
         <Stats recipe={this.state.recipes.recipe1984} settings={this.state.settings} />
         <GrainBill recipe={this.state.recipes.recipe1984} removeMalt={this.removeMalt} />
         <AddMaltForm addMalt={this.addMalt} />
+        <AddHopForm addHop={this.addHop} />
         <button onClick={this.loadSample}>Load sample recipe</button>
       </div>
     );
