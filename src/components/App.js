@@ -12,6 +12,7 @@ class App extends Component {
     super();
     
     this.addMalt = this.addMalt.bind(this);
+    this.removeMalt = this.removeMalt.bind(this);
     this.loadSample = this.loadSample.bind(this);
 
     // Initial state
@@ -30,6 +31,16 @@ class App extends Component {
     // Set state
     // To do: figure out a way to update only the recipe changed, 
     // not the entire state.recipes object
+    this.setState({ recipes });
+  }
+
+  removeMalt(id, recipe) {
+    // Update state
+    const recipes = {...this.state.recipes};
+    const index = recipes[recipe].malts
+      .map(malt => malt.id)
+      .indexOf(id);
+    recipes[recipe].malts.splice(index, 1);
     this.setState({ recipes });
   }
 
@@ -53,7 +64,7 @@ class App extends Component {
           </div>
         </header>
         <Stats recipe={this.state.recipes.recipe1984} settings={this.state.settings} />
-        <GrainBill recipe={this.state.recipes.recipe1984} />
+        <GrainBill recipe={this.state.recipes.recipe1984} removeMalt={this.removeMalt} />
         <AddMaltForm addMalt={this.addMalt} />
         <button onClick={this.loadSample}>Load sample recipe</button>
       </div>

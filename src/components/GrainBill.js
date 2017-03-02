@@ -4,6 +4,7 @@ import { objectLength } from '../helpers';
 
 class GrainBill extends React.Component {
 	render() {
+		const removeMalt = this.props.removeMalt;
 		let totalWeight = 0;
 		if (objectLength(this.props.recipe.malts) > 0) {
 			totalWeight = this.props.recipe.malts
@@ -26,7 +27,12 @@ class GrainBill extends React.Component {
 			    <tbody>
 			    	{
 			    		this.props.recipe.malts.map((malt, index) => {
-			    			return <Malt key={index} details={malt} totalWeight={totalWeight} />;
+			    			return <Malt 
+			    				key={index} 
+			    				details={malt} 
+			    				totalWeight={totalWeight}
+			    				removeMalt={removeMalt} 
+			    			/>;
 			    		})
 			    	}
 			    </tbody>

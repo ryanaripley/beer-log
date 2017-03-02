@@ -6,6 +6,7 @@ const recipes = {
 		batchSize: 5.5,
 	  malts: [
 			{
+				id: "malt8675309",
 				name: "Maris Otter", 
 				weight: 7, 
 				country: "United Kingdom", 
