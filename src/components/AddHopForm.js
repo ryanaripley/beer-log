@@ -33,8 +33,7 @@ class AddHopForm extends React.Component {
 
   matchStateToTerm(state, value) {
 	  return (
-	    state.name.toLowerCase().indexOf(value.toLowerCase()) !== -1 ||
-	    state.country.toLowerCase().indexOf(value.toLowerCase()) !== -1
+	    state.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
 	  )
 	}
 
@@ -64,8 +63,7 @@ class AddHopForm extends React.Component {
     // Update state
     this.setState({ 
     	name: selectedHop.name,
-    	srm: selectedHop.srm,
-    	sg: selectedHop.sg,
+    	alpha: selectedHop.alpha
     });
   }
 
@@ -101,9 +99,8 @@ class AddHopForm extends React.Component {
 	          className="autocomplete-input"
 	          value={this.state.name}
 	          inputProps={{
-	          	ref: (input) => this.name = input,
 	          	name: "name", 
-	          	id: "states-autocomplete",
+	          	id: "hops-autocomplete",
 	          	placeholder: "Name",
 	          	required: true,
 	          }}
@@ -123,10 +120,10 @@ class AddHopForm extends React.Component {
 			    <input 
 			    	ref={(input) => this.weight = input} 
 			    	type="number" 
-			    	step=".125" 
+			    	step=".1" 
 			    	name="weight" 
 			    	placeholder="Weight"
-			    	min=".125"
+			    	min="0"
 			    	required 
 			    />
 			    <input 

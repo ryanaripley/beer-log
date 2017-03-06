@@ -15,7 +15,7 @@ class GrainBill extends React.Component {
 		return (
 			<div className="grain-bill">
 				<h2>Grain Bill</h2>
-				<table className="malt-list">
+				<table className="malt-table">
 			    <thead>
 			      <tr>
 			        <th>Weight</th>

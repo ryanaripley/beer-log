@@ -3,7 +3,7 @@ import BeerGlass from '../components/BeerGlass';
 import GrainBill from '../components/GrainBill';
 import AddMaltForm from '../components/AddMaltForm';
 
-// import HopSchedule from '../components/HopSchedule';
+import HopSchedule from '../components/HopSchedule';
 import AddHopForm from '../components/AddHopForm';
 
 import Stats from '../components/Stats';
@@ -17,6 +17,8 @@ class App extends Component {
     
     this.addMalt = this.addMalt.bind(this);
     this.removeMalt = this.removeMalt.bind(this);
+    this.addHop = this.addHop.bind(this);
+    this.removeHop = this.removeHop.bind(this);
     this.loadSample = this.loadSample.bind(this);
 
     // Initial state
@@ -89,6 +91,7 @@ class App extends Component {
         </header>
         <Stats recipe={this.state.recipes.recipe1984} settings={this.state.settings} />
         <GrainBill recipe={this.state.recipes.recipe1984} removeMalt={this.removeMalt} />
+        <HopSchedule recipe={this.state.recipes.recipe1984} removeHop={this.removeHop} />
         <AddMaltForm addMalt={this.addMalt} />
         <AddHopForm addHop={this.addHop} />
         <button onClick={this.loadSample}>Load sample recipe</button>

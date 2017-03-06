@@ -1,20 +1,22 @@
 import React from 'react';
-import { calculateSG, calculateFG, calculateABV, calculateSRM } from '../helpers.js';
+import { calculateSG, calculateFG, calculateABV, calculateSRM, calculateIBUs } from '../helpers.js';
 
 class Stats extends React.Component {
 
 	render() {
 
-		const malts = this.props.recipe.malts;
-    // const hops = this.props.recipe.hops;
-    const yeast = this.props.recipe.yeast;
-		const batchSize = this.props.recipe.batchSize;
-		const efficiency = this.props.settings.efficiency;
+      const malts = this.props.recipe.malts;
+      const hops = this.props.recipe.hops;
+      const yeast = this.props.recipe.yeast;
+      const batchSize = this.props.recipe.batchSize;
+      const efficiency = this.props.settings.efficiency;
 
-    const startingGrav = calculateSG(malts, batchSize, efficiency);
-    const finalGrav = calculateFG(startingGrav, yeast.attenuation);
-    const abv = calculateABV(startingGrav, finalGrav);
-    const srm = calculateSRM(malts, batchSize);
+      const startingGrav = calculateSG(malts, batchSize, efficiency);
+      const finalGrav = calculateFG(startingGrav, yeast.attenuation);
+      const abv = calculateABV(startingGrav, finalGrav);
+      const srm = calculateSRM(malts, batchSize);
+      // TO-DO: allow recipes to have customizable boil gravities
+      const ibus = calculateIBUs(hops, (startingGrav - 1) * .78 + 1, batchSize);
 
 		return (
 			<div className="stats">
@@ -33,6 +35,10 @@ class Stats extends React.Component {
         <div className="stat">
           <h3>{srm}</h3>
           <p className="sub-title">SRM</p>
+        </div>
+        <div className="stat">
+          <h3>{ibus}</h3>
+          <p className="sub-title">IBUs</p>
         </div>
       </div>
 		);

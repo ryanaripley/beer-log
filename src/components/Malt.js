@@ -1,14 +1,9 @@
 import React from 'react';
 import { round } from '../helpers';
 
-class Ingredient extends React.Component {
-
-	removeMalt() {
-		console.log(this);
-	}
+class Malt extends React.Component {
 
 	render() {
-
 		const { details } = this.props;
 		const percentage = round((details.weight / this.props.totalWeight)*100, 0);
 		return (
@@ -22,4 +17,4 @@ class Ingredient extends React.Component {
 	}
 }
 
-export default Ingredient;
+export default Malt;

@@ -48,3 +48,16 @@ export function calculateSRM(malts, batchSize) {
   const moreySRM = (1.4922 * Math.pow(totalMcu, 0.6859));
   return round(moreySRM, 1);
 }
+
+export function calculateIBUs(hops, boilGravity, batchSize) {
+  function calculateUtilization(bg, time) {
+    const fg = 1.65 * Math.pow(0.000125, (bg - 1)); 
+    const ft = (1 - Math.pow(Math.E, (-0.04 * time))) / 4.15;
+    return fg * ft;
+  };
+  const totalIBUs = hops.reduce((total, hop) => {
+    const utilization = calculateUtilization(boilGravity, hop.boilTime);
+    return total + (hop.weight * hop.alpha * utilization * 75 / batchSize);
+  }, 0);
+  return round(totalIBUs, 0);
+};

@@ -102,9 +102,8 @@ class AddMaltForm extends React.Component {
 	          className="autocomplete-input"
 	          value={this.state.name}
 	          inputProps={{
-	          	ref: (input) => this.name = input,
 	          	name: "name", 
-	          	id: "states-autocomplete",
+	          	id: "malts-autocomplete",
 	          	placeholder: "Name",
 	          	required: true,
 	          }}
