@@ -25,6 +25,51 @@ const recipes = {
 	  	attenuation: .75,
 	  	brand: "Wyeast"
 	  }
+	},
+	recipe1985: {
+		name: "Ripley's Stout",
+		style: "American Stout",
+		brewDate: "2016-10-16",
+		batchSize: 5.5,
+	  malts: [
+			{
+				id: "malt8675309",
+				name: "Maris Otter", 
+				weight: 10, 
+				country: "United Kingdom", 
+				srm: 4.5, 
+				sg: 1.037, 
+				max: 1
+			},
+			{
+				id: "malt8675310",
+				name: "Chocolate Malt", 
+				weight: .5, 
+				country: "United Kingdom", 
+				srm: 350, 
+				sg: 1.035, 
+				max: .2
+			},
+			{
+				id: "malt8675311",
+				name: "Roasted Barley", 
+				weight: .25, 
+				country: "United Kingdom", 
+				srm: 500, 
+				sg: 1.035, 
+				max: .2
+			}
+	  ],
+	  hops: [
+	  	{name: "Cascade", weight: .5, boilTime: 60, type: "Boil", alpha: 8, beta: 6.0},
+	  	{name: "Cascade", weight: .5, boilTime: 40, type: "Boil", alpha: 8, beta: 6.0},
+	  	{name: "Cascade", weight: .5, boilTime: 20, type: "Boil", alpha: 8, beta: 6.0}
+	  ],
+	  yeast: {
+	  	name: 'London ESB Ale',
+	  	attenuation: .75,
+	  	brand: "Wyeast"
+	  }
 	}
 }
 

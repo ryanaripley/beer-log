@@ -56,10 +56,10 @@ body {
   background: $color-white;
   color: $color-black;
   font-family: $font-secondary;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: $font-secondary-weight;
   @media (min-width: $bp-nav) {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }
 
