@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import BeerGlass from '../components/BeerGlass';
-import GrainBill from '../components/GrainBill';
-import AddMaltForm from '../components/AddMaltForm';
-
-import HopSchedule from '../components/HopSchedule';
-import AddHopForm from '../components/AddHopForm';
-
 import Stats from '../components/Stats';
+import GrainBill from '../components/GrainBill';
+import HopSchedule from '../components/HopSchedule';
+
 import { formatDate } from '../helpers';
 
 import sampleRecipes from '../data/sampleRecipes';
 
-class EditRecipe extends Component {
+class ViewRecipe extends Component {
   constructor() {
     super();
-    
-    this.addMalt = this.addMalt.bind(this);
-    this.removeMalt = this.removeMalt.bind(this);
-    this.addHop = this.addHop.bind(this);
-    this.removeHop = this.removeHop.bind(this);
+
+    this.editRecipe = this.editRecipe.bind(this);    
 
     // Initial state
     this.state = {
@@ -39,35 +33,9 @@ class EditRecipe extends Component {
     this.setState({ recipes });
   }
 
-  removeMalt(id, recipe) {
-    // Update state
-    const recipes = {...this.state.recipes};
-    const index = recipes[recipe].malts
-      .map(malt => malt.id)
-      .indexOf(id);
-    recipes[recipe].malts.splice(index, 1);
-    this.setState({ recipes });
-  }
-
-  addHop(hop, recipe) {
-    // Update state
-    const recipes = {...this.state.recipes};
-    recipes[recipe].hops.push(hop);
-    // Set state
-    // To do: figure out a way to update only the recipe changed, 
-    // not the entire state.recipes object
-    this.setState({ recipes });
-  }
-
-  removeHop(id, recipe) {
-    // Update state
-    const recipes = {...this.state.recipes};
-    const index = recipes[recipe].hops
-      .map(hop => hop.id)
-      .indexOf(id);
-    recipes[recipe].hops.splice(index, 1);
-    this.setState({ recipes });
-  }
+  editRecipe = () => {
+    console.log("this is where we'd go to the edit view");
+  };
 
   render() {
 
@@ -86,13 +54,12 @@ class EditRecipe extends Component {
           </div>
         </header>
         <Stats recipe={this.state.recipes[recipeId]} settings={this.state.settings} />
+        <button onClick={this.editRecipe}>Edit recipe</button>
         <GrainBill recipe={this.state.recipes[recipeId]} removeMalt={this.removeMalt} />
-        <AddMaltForm addMalt={this.addMalt} />
         <HopSchedule recipe={this.state.recipes[recipeId]} removeHop={this.removeHop} />
-        <AddHopForm addHop={this.addHop} />
       </div>
     );
   }
 }
 
-export default EditRecipe;
+export default ViewRecipe;

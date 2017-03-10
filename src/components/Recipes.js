@@ -5,9 +5,8 @@ class Recipes extends React.Component {
 	render() {
 		return (
 			<ul>
-				<li>Recipe 1</li>
-				<li>Recipe 2</li>
-				<li>...</li>
+				<li><a href="./recipes/recipe1984">Recipe 1984</a></li>
+				<li><a href="./recipes/recipe1985">Recipe 1985</a></li>
 			</ul>
 		);
 	}

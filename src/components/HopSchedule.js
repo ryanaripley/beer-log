@@ -7,7 +7,7 @@ class HopSchedule extends React.Component {
         const removeHop = this.props.removeHop;
 		return (
 			<div className="hop-schedule">
-				<h2>Grain Bill</h2>
+				<h2>Hop schedule</h2>
 				<table className="hop-table">
 			    <thead>
 			      <tr>

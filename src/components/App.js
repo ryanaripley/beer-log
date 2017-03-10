@@ -5,7 +5,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="site">
-				<p>This is the homepage</p>
+				<p>
+					<a href="/">Home</a> | <a href="/recipes">Recipes</a>
+				</p><br />
 				{React.cloneElement(this.props.children, this.props)}
 			</div>
 		);

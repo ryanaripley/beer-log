@@ -1,24 +1,31 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
+
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 
 import App from './components/App';
-import FooBar from './components/FooBar';
+import Home from './components/Home';
 import Recipes from './components/Recipes';
+import ViewRecipe from './components/ViewRecipe';
 import EditRecipe from './components/EditRecipe';
 import NotFound from './components/NotFound';
 
 import './css/style.css';
 
 const router = (
-	<Router history={browserHistory}>
-		<Route path="/" component={App} >
-			<IndexRoute component={FooBar} />
-			<Route path="/recipes" component={Recipes} />
-    	<Route path="/recipes/:recipeId" component={EditRecipe} />
-      <Route path="*" component={NotFound}/>
-    </Route>
-	</Router>
+	<Provider store={store}>
+		<Router history={history}>
+			<Route path="/" component={App} >
+				<IndexRoute component={Home} />
+				<Route path="/recipes" component={Recipes} />
+		  	<Route path="/recipes/:recipeId" component={ViewRecipe} />
+		  	<Route path="/recipes/:recipeId/edit" component={EditRecipe} />
+		    <Route path="*" component={NotFound}/>
+		  </Route>
+		</Router>
+	</Provider>
 )
 
 render(router, document.getElementById('root'));
