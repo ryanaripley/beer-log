@@ -5,10 +5,11 @@ import { browserHistory } from 'react-router';
 // import the root reducer
 import rootReducer from './reducers/index';
 import recipes from './data/sampleRecipes';
-
+import settings from './data/defaultSettings';
 
 const defaultState = {
-	recipes
+	recipes,
+	settings
 };
 
 const store = createStore(rootReducer, defaultState);

@@ -1,17 +1,20 @@
-import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
+import Main from './Main';
 
-class App extends React.Component {
 
-	render() {
-		return (
-			<div className="site">
-				<p>
-					<a href="/">Home</a> | <a href="/recipes">Recipes</a>
-				</p><br />
-				{React.cloneElement(this.props.children, this.props)}
-			</div>
-		);
+function mapStateToProps(state) {
+	return {
+		recipes: state.recipes,
+		settings: state.settings
 	}
 }
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(actionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default App;

@@ -1,5 +1,5 @@
 function recipes(state = [], action) {
-	console.log(state, action);
+	// do stuff
 	return state;
 }
 
