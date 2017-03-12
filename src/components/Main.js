@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 import SiteHeader from '../components/SiteHeader';
+import SiteNavigation from '../components/SiteNavigation';
 
 class Main extends React.Component {
 
@@ -9,10 +9,10 @@ class Main extends React.Component {
 		return (
 			<div className="site">
 				<SiteHeader></SiteHeader>
-				<p>
-					<Link to="/">Home</Link> | <Link to="/recipes">Recipes</Link>
-				</p><br />
-				{React.cloneElement(this.props.children, this.props)}
+				<SiteNavigation></SiteNavigation>
+				<main className="site-main">
+					{React.cloneElement(this.props.children, this.props)}
+				</main>
 			</div>
 		);
 	}
