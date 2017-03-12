@@ -11,9 +11,9 @@ $color-success: #12C96D;
 $color-alert: #FF5F47;
 
 $color-white: #FCFCFC;
-$color-ltgray: #F0F0F0;
+$color-lightgray: #707070;
 $color-gray: #828282;
-$color-drkgray: #454545;
+$color-darkgray: #141414;;
 $color-black: #242424;
 
 $font-primary: "Lora", Times, serif;
@@ -24,6 +24,19 @@ $font-secondary-weight-heavy: 700;
 
 $padding: 1.4em;
 $header-height: 3.6rem;
+
+
+
+
+
+$bp-medium: 600px;
+$bp-large: 1200px;
+
+$margin: 2rem;
+$header-height: 3rem;
+$nav-width: 5rem;
+
+
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -315,4 +328,31 @@ input {
 .beer-glass svg {
   width: auto;  
   height: 80%;
+}
+
+
+
+/* Site Header */
+
+.site-header {
+  align-items: center;
+  background: $color-darkgray;
+  display: flex;
+  height: $header-height;
+  padding: .8em 1.2em;
+  position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+}
+
+.app-logo {
+  margin-right: auto;
+}
+
+.beer-log-logo {
+  display: block;
+  height: auto;
+  width: 120px;
 }
