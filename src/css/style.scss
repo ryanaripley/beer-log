@@ -297,8 +297,7 @@ input {
 
 .beer-glass {
   align-items: center;
-  background: $color-secondary;
-  background: linear-gradient(135deg, $color-secondary-dark, $color-secondary);
+  background: $color-secondary-dark;
   border-radius: 50%;
   display: flex;
   height: 6em;
@@ -373,12 +372,13 @@ input {
 }
 
 .site-navigation li {
-  padding: .3em 0;
+  padding: .1em 0;
   position: relative;
   text-align: center;
   width: 25%;
 
   @media (min-width: $bp-medium) {
+    margin-bottom: .5em;
     width: 100%;
 
   }

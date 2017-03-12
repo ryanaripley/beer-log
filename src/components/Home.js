@@ -5,7 +5,8 @@ class Home extends React.Component {
 	render() {
 		return (
 			<div>
-				This is the homepage.
+				<h2>Homepage</h2>
+				<p>It will eventually contain a login module? Maybe recent activity?</p>
 			</div>
 		);
 	}

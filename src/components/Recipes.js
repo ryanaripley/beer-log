@@ -7,6 +7,7 @@ class Recipes extends React.Component {
 		const recipes = this.props.recipes;
 		return (
 			<section className="section-recipes">
+				<h2>Recipes</h2>
 				<ul>
 					{
 						Object

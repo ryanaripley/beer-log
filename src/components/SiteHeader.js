@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import BeerLogLogo from '../components/BeerLogLogo';
 import { IconPerson } from '../components/IconSet';
@@ -7,9 +8,9 @@ class SiteHeader extends React.Component {
 	render() {
 		return (
 			<header className="site-header">
-			  <a href="#0" className="app-logo">
+			  <Link to="/" className="app-logo">
 			   <BeerLogLogo className="site-logo" width="120" height="19" letterFill="#fff" />
-			  </a>
+			  </Link>
 			  <a href="#0">
 			  	<IconPerson height="22" width="22" fill="#fff"></IconPerson>
 			  </a>
