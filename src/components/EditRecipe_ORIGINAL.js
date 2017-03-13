@@ -2,7 +2,7 @@ import React from 'react';
 import Autocomplete from 'react-autocomplete';
 import maltList from '../data/maltList';
 
-class AddMaltForm extends React.Component {
+class MaltFormRow extends React.Component {
 
 	constructor() {
 		super();
@@ -91,67 +91,65 @@ class AddMaltForm extends React.Component {
 		};
 
 		return (	
-			<div>
-				<h3>Add malt</h3>
-				<form 
-					ref={(input) => this.maltForm = input} 
-					className="add-malt-form" 
-					onSubmit={(e) => this.createMalt(e)}
-				>
-			    <Autocomplete
-	          className="autocomplete-input"
-	          value={this.state.name}
-	          inputProps={{
-	          	name: "name", 
-	          	id: "malts-autocomplete",
-	          	placeholder: "Name",
-	          	required: true,
-	          }}
-	          items={maltList}
-	          getItemValue={(item) => item.name}
-	          shouldItemRender={this.matchStateToTerm}
-	          sortItems={this.sortStates}
-	          onChange={(event, value) => this.setState({ name: value })}
-	          onSelect={value => this.handleSelect(value)}
-	          renderItem={(item, isHighlighted) => (
-	            <div
-	              style={isHighlighted ? styles.highlightedItem : styles.item}
-	              key={item.id}
-	            >{item.name}</div>
-	          )}
-	        />
-			    <input 
-			    	ref={(input) => this.weight = input} 
-			    	type="number" 
-			    	step=".125" 
-			    	name="weight" 
-			    	placeholder="Weight"
-			    	min=".125"
-			    	required 
-			    />
-			    <input 
-			    	ref={(input) => this.srm = input} 
-			    	type="number" 
-			    	step="1" 
-			    	name="srm"
-			    	placeholder="SRM"
-			    	min="0" max="550"
-			    	required 
-			    />
-			    <input 
-			    	ref={(input) => this.sg = input} 
-			    	type="number" 
-			    	step=".001" 
-			    	name="sg" 
-			    	placeholder="SG" 
-			    	min="0" max="2" 
-			    	required 
-			    />
-			    <button type="submit" className="button-primary">Add grain</button>
-			  </form>
-			</div>
+			<form 
+				ref={(input) => this.maltForm = input} 
+				className="form-row" 
+				onSubmit={(e) => this.createMalt(e)}
+			>
+				<input 
+		    	ref={(input) => this.weight = input} 
+		    	type="number" 
+		    	step=".125" 
+		    	name="weight" 
+		    	placeholder="Weight"
+		    	min=".125"
+		    	required 
+		    />
+		    <Autocomplete
+          className="autocomplete-input"
+          value={this.state.name}
+          inputProps={{
+          	name: "name", 
+          	id: "malts-autocomplete",
+          	placeholder: "Name",
+          	required: true,
+          }}
+          items={maltList}
+          getItemValue={(item) => item.name}
+          shouldItemRender={this.matchStateToTerm}
+          sortItems={this.sortStates}
+          onChange={(event, value) => this.setState({ name: value })}
+          onSelect={value => this.handleSelect(value)}
+          renderItem={(item, isHighlighted) => (
+            <div
+              style={isHighlighted ? styles.highlightedItem : styles.item}
+              key={item.id}
+            >{item.name}</div>
+          )}
+        />
+		    
+		    <input 
+		    	ref={(input) => this.srm = input} 
+		    	type="number" 
+		    	step="1" 
+		    	name="srm"
+		    	placeholder="SRM"
+		    	min="0" max="550"
+		    	required 
+		    />
+		    <input 
+		    	ref={(input) => this.sg = input} 
+		    	type="number" 
+		    	step=".001" 
+		    	name="sg" 
+		    	placeholder="SG" 
+		    	min="0" max="2" 
+		    	required 
+		    />
+		    <button type="submit" className="button-primary">X</button>
+		  </form>
 		);
 	}
 }
 
-export default AddMaltForm;
+export default MaltFormRow;

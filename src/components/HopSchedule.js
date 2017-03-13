@@ -14,7 +14,6 @@ class HopSchedule extends React.Component {
 			        <th>Weight</th>
 			        <th>Hop</th>
 			        <th>Boil time</th>
-			        <th></th>
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -23,7 +22,6 @@ class HopSchedule extends React.Component {
 			    			return <Hop 
 			    				key={index} 
 			    				details={hop} 
-			    				removeHop={removeHop} 
 			    			/>;
 			    		})
 			    	}

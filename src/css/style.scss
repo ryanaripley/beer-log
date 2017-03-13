@@ -118,7 +118,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
   background-color: $color-white;
-  border: 1px solid black;
+  border: 1px solid $color-gray;
   color: $color-black;
   cursor: pointer;
   display: inline-block;
@@ -388,7 +388,18 @@ input {
   color: white;
   margin: .3em;
   display: block;
-  font-size: .7em;  
+  font-size: .7em;
+  transition: opacity .1s ease-in-out;
+}
+
+.site-navigation a:hover {
+  opacity: .6;
+  text-decoration: none;  
+}
+
+.site-navigation a:active {
+  opacity: .3;
+  text-decoration: none;  
 }
 
 /* Content */
@@ -404,4 +415,68 @@ input {
     margin-left: $nav-width + $margin;
     max-width: 40em;
   }
+}
+
+/* Malt form */
+
+.edit-malt-group,
+.add-malt-group {
+  margin-bottom: 1em;
+}
+
+.form-header {
+  font-weight: bold;
+}
+
+.form-header > * {
+  margin-bottom: .2em;
+  padding: .2em;
+}
+
+.form-row {
+  display: flex;
+  font-size: .8em;
+  width: 100%;
+}
+
+.form-row input,
+.form-row button {
+  border: 1px solid $color-gray;
+  border-right: 0;
+  border-bottom: 0;
+  font-size: 1em;
+  padding: .6em .4em;
+}
+
+.form-row:last-child {
+  input, button {
+    border-bottom: 1px solid $color-gray;
+  }
+}
+
+.form-row > input:last-of-type,
+.form-row > button:last-of-type {
+  border-right: 1px solid $color-gray;
+}
+
+.form-row > *:nth-child(1) {
+  width: 15%;
+}
+
+.form-row > *:nth-child(2) {
+  width: 50%;
+
+  input {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.form-row > *:nth-child(3),
+.form-row > *:nth-child(4) {
+  width: 15%;
+}
+
+.form-row > *:nth-child(5) {
+  width: 5%;
 }

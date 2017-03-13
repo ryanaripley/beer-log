@@ -9,7 +9,6 @@ class Hop extends React.Component {
         <td>{details.weight} oz.</td>
         <td>{details.name} ({details.alpha}% AA)</td>
         <td>{details.boilTime} min.</td>
-        <td><button onClick={() => this.props.removeHop(details.id, "recipe1984")}>&times;</button></td>
       </tr>
 		);
 	}

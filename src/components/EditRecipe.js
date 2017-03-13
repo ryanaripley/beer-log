@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import BeerGlass from '../components/BeerGlass';
-import GrainBill from '../components/GrainBill';
-import AddMaltForm from '../components/AddMaltForm';
+import GrainBillEditable from '../components/GrainBillEditable';
 
 import HopSchedule from '../components/HopSchedule';
 import AddHopForm from '../components/AddHopForm';
@@ -12,22 +11,6 @@ import { formatDate } from '../helpers';
 import sampleRecipes from '../data/sampleRecipes';
 
 class EditRecipe extends Component {
-  constructor() {
-    super();
-    
-    this.addMalt = this.addMalt.bind(this);
-    this.removeMalt = this.removeMalt.bind(this);
-    this.addHop = this.addHop.bind(this);
-    this.removeHop = this.removeHop.bind(this);
-
-    // Initial state
-    this.state = {
-      settings: {
-        efficiency: .75,
-      },
-      recipes: sampleRecipes
-    }
-  }
 
   addMalt(malt, recipe) {
     // Update state
@@ -72,23 +55,26 @@ class EditRecipe extends Component {
   render() {
 
     const recipeId = this.props.params.recipeId;
+    const recipe = this.props.recipes[recipeId];
 
     return (
       <div className="edit-recipe">
         <header className="recipe-header">
-          <BeerGlass malts={this.state.recipes[recipeId].malts} batchSize={this.state.recipes[recipeId].batchSize} />
+          <BeerGlass malts={recipe.malts} batchSize={recipe.batchSize} />
           <div className="recipe-title">
-            <h1>{this.state.recipes[recipeId].name}</h1>
+            <h1>{recipe.name}</h1>
             <p className="sub-title">
-              {this.state.recipes[recipeId].style} | 
-              Brewed {formatDate(this.state.recipes[recipeId].brewDate)}
+              {recipe.style} | 
+              Brewed {formatDate(recipe.brewDate)}
             </p>
           </div>
         </header>
-        <Stats recipe={this.state.recipes[recipeId]} settings={this.state.settings} />
-        <GrainBill recipe={this.state.recipes[recipeId]} removeMalt={this.removeMalt} />
-        <AddMaltForm addMalt={this.addMalt} />
-        <HopSchedule recipe={this.state.recipes[recipeId]} removeHop={this.removeHop} />
+        <Stats recipe={recipe} settings={this.props.settings} />
+
+        <GrainBillEditable recipe={recipe} removeMalt={this.removeMalt} />
+
+        <HopSchedule recipe={recipe} removeHop={this.removeHop} />
+
         <AddHopForm addHop={this.addHop} />
       </div>
     );

@@ -11,7 +11,6 @@ class Malt extends React.Component {
         <td>{details.weight} lbs.</td>
         <td>{details.name}</td>
         <td>{percentage}%</td>
-        <td><button onClick={() => this.props.removeMalt(details.id, "recipe1984")}>&times;</button></td>
       </tr>
 		);
 	}

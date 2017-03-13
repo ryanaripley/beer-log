@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import BeerGlass from '../components/BeerGlass';
 import Stats from '../components/Stats';
 import GrainBill from '../components/GrainBill';
@@ -12,8 +14,6 @@ class ViewRecipe extends Component {
   constructor() {
     super();
 
-    this.editRecipe = this.editRecipe.bind(this);    
-
     // Initial state
     this.state = {
       settings: {
@@ -22,20 +22,6 @@ class ViewRecipe extends Component {
       recipes: sampleRecipes
     }
   }
-
-  addMalt(malt, recipe) {
-    // Update state
-    const recipes = {...this.state.recipes};
-    recipes[recipe].malts.push(malt);
-    // Set state
-    // To do: figure out a way to update only the recipe changed, 
-    // not the entire state.recipes object
-    this.setState({ recipes });
-  }
-
-  editRecipe = () => {
-    console.log("this is where we'd go to the edit view");
-  };
 
   render() {
 
@@ -54,9 +40,10 @@ class ViewRecipe extends Component {
           </div>
         </header>
         <Stats recipe={this.state.recipes[recipeId]} settings={this.state.settings} />
-        <button onClick={this.editRecipe}>Edit recipe</button>
-        <GrainBill recipe={this.state.recipes[recipeId]} removeMalt={this.removeMalt} />
-        <HopSchedule recipe={this.state.recipes[recipeId]} removeHop={this.removeHop} />
+        <br />
+        <Link to={`/recipes/${recipeId}/edit`} className="button">Edit recipe</Link>
+        <GrainBill recipe={this.state.recipes[recipeId]} />
+        <HopSchedule recipe={this.state.recipes[recipeId]} />
       </div>
     );
   }

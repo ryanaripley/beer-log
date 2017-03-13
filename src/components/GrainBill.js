@@ -21,7 +21,6 @@ class GrainBill extends React.Component {
 			        <th>Weight</th>
 			        <th>Malt</th>
 			        <th>%</th>
-			        <th></th>
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -31,7 +30,6 @@ class GrainBill extends React.Component {
 			    				key={index} 
 			    				details={malt} 
 			    				totalWeight={totalWeight}
-			    				removeMalt={removeMalt} 
 			    			/>;
 			    		})
 			    	}
