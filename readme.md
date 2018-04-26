@@ -6,13 +6,13 @@ Install node modules
 npm install
 ```
 
-Starting the dev server
+Start the dev server
 
 ```
 npm start 
 ```
 
-Building the app
+Build the app
 
 ```
 npm build
