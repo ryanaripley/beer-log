@@ -1,9 +1,27 @@
+## Getting started
 
+Install node modules
+
+```
+npm install
+```
+
+Starting the dev server
+
+```
+npm start 
+```
+
+Building the app
+
+```
+npm build
+```
 
 
 ## State
 
-		this.state = {
+    this.state = {
       settings: {
         efficiency: .75,
       },
